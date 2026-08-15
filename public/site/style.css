@@ -3,9 +3,10 @@
   --navy-deep: #0b132b;
   --navy: #1c2541;
   --navy-soft: #3a506b;
-  --accent: #00e0ff; /* electric cyan */
-  --accent-dark: #00b8d4;
+  --accent: #f9a93a; /* logo orange */
+  --accent-dark: #e5931f;
   --orange: #ff7a18;
+  --logo-blue: #1e88e5;
   --white: #ffffff;
   --light: #f4f6fa;
   --grey: #c9d1e0;
@@ -54,7 +55,7 @@ body {
 .btn-accent {
   background: var(--accent);
   color: var(--navy-deep);
-  box-shadow: 0 6px 18px rgba(0, 224, 255, 0.3);
+  box-shadow: 0 6px 18px rgba(249, 169, 58, 0.35);
 }
 
 .btn-accent:hover {
@@ -94,10 +95,25 @@ body {
 }
 
 .logo {
+  display: flex;
+  align-items: center;
   font-size: 1.35rem;
   font-weight: 800;
   letter-spacing: 0.5px;
   text-decoration: none;
+}
+
+.logo-img {
+  height: 46px;
+  width: auto;
+  display: block;
+}
+
+.footer-logo {
+  height: 52px;
+  width: auto;
+  margin: 0 auto 16px;
+  display: block;
 }
 
 .logo-accent {
@@ -210,7 +226,7 @@ body {
   display: inline-block;
   font-weight: 800;
   color: var(--accent-dark);
-  background: rgba(0, 224, 255, 0.12);
+  background: rgba(249, 169, 58, 0.15);
   border-radius: 8px;
   padding: 6px 12px;
   margin-bottom: 14px;
@@ -326,7 +342,7 @@ input {
 input:focus {
   outline: none;
   border-color: var(--accent-dark);
-  box-shadow: 0 0 0 3px rgba(0, 224, 255, 0.2);
+  box-shadow: 0 0 0 3px rgba(249, 169, 58, 0.25);
 }
 
 /* Message shown by script.js */
@@ -345,8 +361,8 @@ input:focus {
 }
 
 .form-message.success {
-  background: rgba(0, 224, 255, 0.14);
-  color: #04627a;
+  background: rgba(249, 169, 58, 0.16);
+  color: #8a5a00;
   border: 1px solid var(--accent-dark);
 }
 
@@ -397,6 +413,9 @@ input:focus {
     flex-wrap: wrap;
     justify-content: center;
     gap: 16px;
+  }
+  .logo-img {
+    height: 38px;
   }
   .hero {
     padding: 70px 0 80px;
