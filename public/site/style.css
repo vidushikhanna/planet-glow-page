@@ -648,7 +648,8 @@ input:focus {
     grid-template-columns: repeat(2, 1fr);
   }
   .grid,
-  .timeline {
+  .timeline,
+  .price-grid {
     grid-template-columns: 1fr;
   }
   .hero h1 {
