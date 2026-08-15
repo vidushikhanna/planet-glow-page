@@ -51,3 +51,30 @@ form.addEventListener("submit", function (event) {
   showMessage("Success! Our SEO team will contact you shortly.", "success");
   form.reset();
 });
+
+/* =========================================================
+   FAQ accordion — click a question to toggle its answer
+   ========================================================= */
+const faqTriggers = document.querySelectorAll("#faqAccordion .acc-trigger");
+
+faqTriggers.forEach(function (trigger) {
+  trigger.addEventListener("click", function () {
+    const item = trigger.parentElement;
+    const panel = item.querySelector(".acc-panel");
+    const isOpen = item.classList.contains("open");
+
+    // Close every item first (one-open-at-a-time behaviour)
+    faqTriggers.forEach(function (other) {
+      other.parentElement.classList.remove("open");
+      other.setAttribute("aria-expanded", "false");
+      other.parentElement.querySelector(".acc-panel").style.maxHeight = null;
+    });
+
+    // Re-open the clicked one unless it was already open
+    if (!isOpen) {
+      item.classList.add("open");
+      trigger.setAttribute("aria-expanded", "true");
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+});
