@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- Reading/scroll progress indicator -->
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
     <!-- ===== Fixed Header ===== -->
     <header class="site-header">
       <nav class="nav container" aria-label="Main navigation">
@@ -28,13 +30,22 @@
             alt="SEO Services Planet logo"
           />
         </a>
-        <ul class="nav-links">
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          type="button"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
           <li><a href="#services">Services</a></li>
           <li><a href="#strategy">Strategy</a></li>
+          <li><a href="#checker">SEO Checker</a></li>
           <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#results">Results</a></li>
           <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contact">Contact</a></li>
-
           <li><a class="btn btn-accent btn-sm" href="#contact">Get Free Audit &#8599;</a></li>
         </ul>
       </nav>
@@ -69,9 +80,17 @@
 
         <!-- Stats strip -->
         <div class="container stats">
-          <div class="stat"><strong>1000+</strong><span>SEO projects completed</span></div>
-          <div class="stat"><strong>1k</strong><span>Businesses on Google Page 1</span></div>
-          <div class="stat"><strong>30 Days</strong><span>To visible backlink results</span></div>
+          <div class="stat">
+            <strong data-count="1000" data-suffix="+">0</strong><span>SEO projects completed</span>
+          </div>
+          <div class="stat">
+            <strong data-count="1000" data-suffix="+">0</strong
+            ><span>Businesses on Google Page 1</span>
+          </div>
+          <div class="stat">
+            <strong data-count="30" data-suffix=" Days">0</strong
+            ><span>To visible backlink results</span>
+          </div>
           <div class="stat"><strong>US / UK / CA / AU</strong><span>Clients served globally</span></div>
         </div>
       </section>
@@ -255,6 +274,87 @@
         </div>
       </section>
 
+      <!-- ===== Instant SEO Score Checker (client-side demo) ===== -->
+      <section class="section checker" id="checker">
+        <div class="container">
+          <p class="kicker">Free Tool</p>
+          <h2 class="section-title">Instant SEO Health Score</h2>
+          <p class="section-sub">Answer 4 quick questions and see where your site stands today.</p>
+
+          <div class="checker-card">
+            <form id="checkerForm" class="checker-form" novalidate>
+              <label class="check"
+                ><input type="checkbox" name="q" value="25" /> My site loads in under 3 seconds</label
+              >
+              <label class="check"
+                ><input type="checkbox" name="q" value="25" /> I publish new content every month</label
+              >
+              <label class="check"
+                ><input type="checkbox" name="q" value="25" /> I have backlinks from other
+                websites</label
+              >
+              <label class="check"
+                ><input type="checkbox" name="q" value="25" /> My pages have unique titles &amp;
+                meta descriptions</label
+              >
+              <button type="submit" class="btn btn-accent">Calculate My Score</button>
+            </form>
+
+            <div class="score-panel" id="scorePanel" aria-live="polite">
+              <div class="score-ring" id="scoreRing">
+                <span id="scoreValue">0<small>%</small></span>
+              </div>
+              <p class="score-label" id="scoreLabel">Your score will appear here.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Results / Testimonials slider ===== -->
+      <section class="section results" id="results">
+        <div class="container">
+          <p class="kicker">Client Results</p>
+          <h2 class="section-title">What Our Clients Say</h2>
+          <p class="section-sub">Real feedback from businesses we rank.</p>
+
+          <div class="slider" id="slider">
+            <button class="slider-btn prev" type="button" aria-label="Previous testimonial">
+              &#8249;
+            </button>
+
+            <div class="slides">
+              <blockquote class="slide active">
+                <p>
+                  "Our organic traffic doubled within four months and we finally rank on Page 1 for
+                  our main service keyword."
+                </p>
+                <footer>Local Services Client &mdash; United States</footer>
+              </blockquote>
+              <blockquote class="slide">
+                <p>
+                  "The technical audit alone uncovered issues our previous agency missed for a year.
+                  Reporting is clear and honest."
+                </p>
+                <footer>E-commerce Client &mdash; United Kingdom</footer>
+              </blockquote>
+              <blockquote class="slide">
+                <p>
+                  "Link building was delivered exactly as promised, and we saw movement in the first
+                  30 days of the campaign."
+                </p>
+                <footer>SaaS Client &mdash; Australia</footer>
+              </blockquote>
+            </div>
+
+            <button class="slider-btn next" type="button" aria-label="Next testimonial">
+              &#8250;
+            </button>
+
+            <div class="slider-dots" id="sliderDots"></div>
+          </div>
+        </div>
+      </section>
+
 
       <!-- ===== Contact / Lead Form ===== -->
       <section class="section contact" id="contact">
@@ -298,6 +398,9 @@
         </p>
       </div>
     </footer>
+
+    <!-- Back to top -->
+    <button class="to-top" id="toTop" type="button" aria-label="Back to top">&#8593;</button>
 
     <script src="script.js"></script>
   </body>
