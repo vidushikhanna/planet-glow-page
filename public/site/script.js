@@ -178,7 +178,10 @@ document.querySelectorAll("[data-count]").forEach(function (el) {
    6. Highlight the nav link of the section in view
    ========================================================= */
 const sections = document.querySelectorAll("main section[id]");
-const menuLinks = navLinks.querySelectorAll('a[href^="#"]');
+// Exclude the "Get Free Audit" CTA button: it shares an href with the Contact
+// section, and .active's color would otherwise override the button's own
+// text color, washing it out against its matching accent background.
+const menuLinks = navLinks.querySelectorAll('a[href^="#"]:not(.btn)');
 
 function updateActiveLink() {
   let currentId = "";
